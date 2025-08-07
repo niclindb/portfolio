@@ -1,0 +1,9 @@
+sections
+    about
+        bio
+        who i am
+        background, interests, passions
+    projects
+    work expirence
+    skills
+    contact
