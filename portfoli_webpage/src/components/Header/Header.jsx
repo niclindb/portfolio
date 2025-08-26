@@ -1,17 +1,18 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import './Header.css';
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isHovered, setIsHovered] = useState(false);
+
+  const handleScroll = useCallback(() => {
+    setIsScrolled(window.scrollY > 10);
+  }, []);
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 10);
-    };
-
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [handleScroll]);
 
   const socialLinks = [
     { 
@@ -31,18 +32,27 @@ export default function Header() {
           <path d="M0 3v18h24V3H0zm21.518 2L12 12.713 2.482 5h19.036zM2 19V7.183l10 8.104 10-8.104V19H2z"/>
         </svg>
       )
-    }
+    },
   ];
 
   return (
-    <header className={`header ${isScrolled ? 'header--scrolled' : ''}`}>
+    <header 
+      className={`header ${isScrolled ? 'header--scrolled' : ''} ${isHovered ? 'header--hovered' : ''}`}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+    >
       <div className="header__content">
         <div className="header__title">
-          <h1 className="header__name">Nick Lindberg</h1>
-          <p className="header__subtitle">Software Developer</p>
+          <h1 className="header__name">
+            <span className="header__name-text">Nick Lindberg</span>
+            <span className="header__name-underline"></span>
+          </h1>
+          <p className="header__subtitle">
+            <span className="header__subtitle-text">Software Developer</span>
+          </p>
         </div>
         
-        <nav className="header__nav">
+        <nav className="header__nav" role="navigation" aria-label="Social media links">
           <ul className="header__social-links">
             {socialLinks.map((link, index) => (
               <li key={index}>
@@ -51,16 +61,21 @@ export default function Header() {
                   target={link.url.startsWith('http') ? '_blank' : '_self'}
                   rel={link.url.startsWith('http') ? 'noopener noreferrer' : ''}
                   className="header__social-link"
-                  aria-label={link.name}
+                  aria-label={`Visit ${link.name} profile`}
+                  title={`Visit ${link.name}`}
                 >
-                  <span className="header__social-icon">{link.icon}</span>
+                  <span className="header__social-icon" aria-hidden="true">
+                    {link.icon}
+                  </span>
                   <span className="header__social-text">{link.name}</span>
+                  <span className="header__social-hover-effect"></span>
                 </a>
               </li>
             ))}
           </ul>
         </nav>
       </div>
+
     </header>
   );
 } 

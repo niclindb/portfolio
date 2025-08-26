@@ -4,7 +4,7 @@ import {
   OrbitControls,
 } from '@react-three/drei'
 import BubbleGroup from './components/bubbles/bubbleGroup'
-import Header from './components/Header'
+import Header from './components/Header/Header'
 import { useState } from 'react';
 
 export default function App() {
