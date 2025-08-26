@@ -20,7 +20,7 @@ const bubblePositions = [
       speed: 1.2,
       rotationIntensity: .8,
       text: "Projects",
-      moreText: "Shopify Inventory Management App\n   React, JavaScript\nBuilt-in Shopify web application for managing dual-location inventory.\n\nShopify POS App\n  React, JavaScript\nImplimented product cost lookup, automatic discount, product holds, and charge account orders."
+      moreText: "Custom Shopify Extensions\n   Stack: React, JavaScript, Shopify GraphQL\nFeatures: \n • Product price look-up\n • Inventory management\n • Charge Orders\n • Barcode Printing"
     },
     { // right
       position: [2.7, -1.8, 0], 
@@ -47,7 +47,7 @@ const bubblePositions = [
       speed: 1.3,
       rotationIntensity: .8,
       text: "Education",
-      moreText: "Northern Michigan University \n\nBachelor of Science in Computer Science, Minor in Mathematics\n  \nGPA: 3.75"
+      moreText: "Northern Michigan University \n\nBachelors degree in Computer Science, Minor in Mathematics"
     },
   ]
 
@@ -56,10 +56,20 @@ export default function BubbleGroup({ onBubbleSelect, selectedBubble }) {
   
   // Animate camera when selection changes
   useEffect(() => {
-    const targetZ = selectedBubble !== null ? 30 : 5;
     const duration = 1000; // 1 second
-    const startZ = camera.position.z;
     const startTime = Date.now();
+    
+    // Store initial camera position
+    const startPosition = {
+      x: camera.position.x,
+      y: camera.position.y,
+      z: camera.position.z
+    };
+    
+    // Target position based on selection
+    const targetPosition = selectedBubble !== null 
+      ? { x: 0, y: 0, z: 30 }  // Zoom in to selected bubble
+      : { x: 0, y: 0, z: 5 };  // Reset to center view
     
     const animate = () => {
       const elapsed = Date.now() - startTime;
@@ -68,7 +78,10 @@ export default function BubbleGroup({ onBubbleSelect, selectedBubble }) {
       // Easing function for smooth animation
       const easeOutCubic = 1 - Math.pow(1 - progress, 3);
       
-      camera.position.z = startZ + (targetZ - startZ) * easeOutCubic;
+      // Animate all camera positions (x, y, z)
+      camera.position.x = startPosition.x + (targetPosition.x - startPosition.x) * easeOutCubic;
+      camera.position.y = startPosition.y + (targetPosition.y - startPosition.y) * easeOutCubic;
+      camera.position.z = startPosition.z + (targetPosition.z - startPosition.z) * easeOutCubic;
       
       if (progress < 1) {
         requestAnimationFrame(animate);
