@@ -64,10 +64,12 @@ export default function Header() {
         <nav className="header__nav" role="navigation" aria-label="Social media links">
           <ul className="header__social-links">
             {socialLinks.map((link, index) => {
-              const isExternal = link.url.startsWith('http');
+              const isMailto = link.url.startsWith('mailto:');
+              const isExternal = link.url.startsWith('http') || isMailto;
               const isPDF = link.url.toLowerCase().endsWith('.pdf');
               const target = isExternal || isPDF ? '_blank' : '_self';
               const rel = isExternal || isPDF ? 'noopener noreferrer' : undefined;
+              const ariaLabel = isMailto ? `Send email to ${link.name}` : `Visit ${link.name} profile`;
 
               return (
                 <li key={index}>
@@ -76,8 +78,8 @@ export default function Header() {
                     target={target}
                     rel={rel}
                     className="header__social-link"
-                    aria-label={`Visit ${link.name} profile`}
-                    title={`Visit ${link.name}`}
+                      aria-label={ariaLabel}
+                      title={link.name}
                   >
                     <span className="header__social-icon" aria-hidden="true">
                       {link.icon}
