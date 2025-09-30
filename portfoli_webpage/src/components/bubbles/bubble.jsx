@@ -77,7 +77,7 @@ export default function Bubble({
       )}
       {isSelected && moreText && (
         <Text
-          fontSize={0.1}
+          fontSize={0.15}
           color="#3A3A6A"
           position={[0.1, 0, 0.0]}
           anchorX="center"
