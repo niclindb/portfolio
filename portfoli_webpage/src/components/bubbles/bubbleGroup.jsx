@@ -29,7 +29,7 @@ const bubblePositions = [
       speed: 1.2,
       rotationIntensity: .8,
       text: "C++ Project",
-      moreText: "Parallel Merge Sort\n   Stack: C++ \nFeatures:\n • Efficiently sorts large datasets using parallel processing\n • Demonstrates proficiency in C++ and parallel computing concepts\n\n  Check out more on my GitHub!"
+      moreText: "Parallel Merge Sort\n   Stack: C++ \nFeatures:\n • Efficiently sorts large datasets using parallel processing\n • Demonstrates proficiency in C++ and parallel computing concepts\n\n   Check out more on my GitHub!"
     },
     { // top
       position: [2.48, 1.2, 0.1], 
@@ -38,7 +38,7 @@ const bubblePositions = [
       speed: 1.2,
       rotationIntensity: .8,
       text: "Skills",
-      moreText: "Backend: Node.js, Python, SQL \n Frontend: React, TypeScript, HTML \n Other Languages: Java, C++ \n Tools & Platforms: Git, Docker, AWS" 
+      moreText: "Backend: Node.js, Python, SQL \nFrontend: React, TypeScript, HTML \nOther Languages: Java, C++ \nTools & Platforms: Git, Docker, AWS" 
     },
     { // bottom left
       position: [-2.6, -1.9, 0.1], 
