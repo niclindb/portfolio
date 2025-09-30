@@ -11,7 +11,7 @@ const bubblePositions = [
       speed: 1.2,
       rotationIntensity: .8,
       text: "About Me",
-      moreText: "I'm a passionate developer with experience in React, Three.js, and modern web technologies. I love creating interactive 3D experiences and building beautiful user interfaces."
+      moreText: "I’m a passionate developer with experience in Java, C++, Python, and JavaScript. I enjoy solving problems through clean, efficient code and building applications that are both creative and practical. I’m always exploring new tools and technologies to expand my skillset and bring fresh ideas to life."
     },
     { // left
       position: [-3.1, 1.1, 0], 
@@ -19,8 +19,8 @@ const bubblePositions = [
       floatIntensity: 2.7,
       speed: 1.2,
       rotationIntensity: .8,
-      text: "Projects",
-      moreText: "Custom Shopify Extensions\n   Stack: React, JavaScript, Shopify GraphQL\nFeatures: \n • Product price look-up\n • Inventory management\n • Charge Orders\n • Barcode Printing"
+      text: "React Project",
+      moreText: "Custom Shopify Extensions\n   Stack: React, JavaScript, Shopify GraphQL\nFeatures: \n • Product price look-up\n • Inventory management\n • Charge Orders\n • Barcode Printing\n Check out more on my GitHub!"
     },
     { // right
       position: [2.7, -1.8, 0], 
@@ -28,8 +28,8 @@ const bubblePositions = [
       floatIntensity: 2.4,
       speed: 1.2,
       rotationIntensity: .8,
-      text: "Contact",
-      moreText: "Let's get in touch!\n\nEmail: niclindb@nmu.edu\n\nGitHub: https://github.com/niclindb"
+      text: "C++ Project",
+      moreText: "Parallel Merge Sort\n   Stack: C++ \nFeatures:\n • Efficiently sorts large datasets using parallel processing\n • Demonstrates proficiency in C++ and parallel computing concepts\n\n  Check out more on my GitHub!"
     },
     { // top
       position: [2.48, 1.2, 0.1], 
@@ -38,7 +38,7 @@ const bubblePositions = [
       speed: 1.2,
       rotationIntensity: .8,
       text: "Skills",
-      moreText: "Frontend: React, Vue, TypeScript | Backend: Node.js, Python, SQL | 3D: Three.js, WebGL | Tools: Git, Docker, AWS"
+      moreText: "Backend: Node.js, Python, SQL \n Frontend: React, TypeScript, HTML \n Other Languages: Java, C++ \n Tools & Platforms: Git, Docker, AWS" 
     },
     { // bottom left
       position: [-2.6, -1.9, 0.1], 

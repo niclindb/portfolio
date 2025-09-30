@@ -24,9 +24,18 @@ export default function Header() {
         </svg>
       )
     },
+    {
+      name: 'Resume', 
+      url: '/Resume.pdf', 
+      icon: ( 
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M14 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/>
+        </svg>
+      )
+    },
     { 
-      name: 'Email', 
-      url: 'mailto:niclindb@nmu.edu', 
+      name: 'Contact Me', 
+      url: 'mailto:nicklindberg0@gmail.com', 
       icon: (
         <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
           <path d="M0 3v18h24V3H0zm21.518 2L12 12.713 2.482 5h19.036zM2 19V7.183l10 8.104 10-8.104V19H2z"/>
@@ -54,24 +63,31 @@ export default function Header() {
         
         <nav className="header__nav" role="navigation" aria-label="Social media links">
           <ul className="header__social-links">
-            {socialLinks.map((link, index) => (
-              <li key={index}>
-                <a
-                  href={link.url}
-                  target={link.url.startsWith('http') ? '_blank' : '_self'}
-                  rel={link.url.startsWith('http') ? 'noopener noreferrer' : ''}
-                  className="header__social-link"
-                  aria-label={`Visit ${link.name} profile`}
-                  title={`Visit ${link.name}`}
-                >
-                  <span className="header__social-icon" aria-hidden="true">
-                    {link.icon}
-                  </span>
-                  <span className="header__social-text">{link.name}</span>
-                  <span className="header__social-hover-effect"></span>
-                </a>
-              </li>
-            ))}
+            {socialLinks.map((link, index) => {
+              const isExternal = link.url.startsWith('http');
+              const isPDF = link.url.toLowerCase().endsWith('.pdf');
+              const target = isExternal || isPDF ? '_blank' : '_self';
+              const rel = isExternal || isPDF ? 'noopener noreferrer' : undefined;
+
+              return (
+                <li key={index}>
+                  <a
+                    href={link.url}
+                    target={target}
+                    rel={rel}
+                    className="header__social-link"
+                    aria-label={`Visit ${link.name} profile`}
+                    title={`Visit ${link.name}`}
+                  >
+                    <span className="header__social-icon" aria-hidden="true">
+                      {link.icon}
+                    </span>
+                    <span className="header__social-text">{link.name}</span>
+                    <span className="header__social-hover-effect"></span>
+                  </a>
+                </li>
+              );
+            })}
           </ul>
         </nav>
       </div>

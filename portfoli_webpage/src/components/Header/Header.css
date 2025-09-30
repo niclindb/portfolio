@@ -178,6 +178,20 @@
   left: 100%;
 }
 
+/* Back button variant: match header background */
+.header__social-link.back-button {
+  background: rgba(26, 26, 46, 0.95);
+  border-color: rgba(255, 255, 255, 0.06);
+  color: #ffffff;
+}
+
+.header__social-link.back-button:hover {
+  background: rgba(26, 26, 46, 0.99);
+  border-color: rgba(255, 255, 255, 0.12);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.45);
+  transform: translateY(-2px);
+}
+
 
 @keyframes float {
   0%, 100% { transform: translateY(0px) scale(1); }
