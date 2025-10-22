@@ -1,6 +1,6 @@
 {
   "name": "portfoli_webpage",
-  "homepage": "portfolio.lindbergdev.app",
+  "homepage": "https://portfolio.lindbergdev.app",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
